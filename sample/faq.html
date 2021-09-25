@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>HOME-- ADMI Online</title>
+  </head>
+  <body>
+    <header>
+      <!-- Begining of main top navigation -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Services</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li>Search</li>
+        </ul>
+      </nav>
+      <!-- End of top navigation -->
+    </header>
+  <div class="faq_accordion">
+  <details>
+    <summary>Who are we</summary>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id tincidunt leo. Donec vitae tincidunt mauris, ac accumsan sapien. Aenean nec vestibulum odio. Nullam rutrum sit amet nisl vitae rutrum. Nulla faucibus tortor eros, eu volutpat mauris aliquet vel. Mauris fringilla egestas leo, ac posuere erat tempus quis. Suspendisse nec pharetra felis. Fusce non aliquam lacus. Aenean malesuada porttitor neque, id egestas velit dapibus nec. Morbi et pretium neque, ac interdum mi. Sed molestie, urna nec mollis rhoncus, arcu leo accumsan augue, vel lobortis eros lacus et nisi. </p>
+  </details>
+
+  <details>
+    <summary>Do you offer scolarships</summary>
+    <p>Sed a nibh in ipsum blandit dignissim a eu enim. Nulla facilisi. In interdum luctus arcu, sed ornare augue. Fusce scelerisque et ante vitae pulvinar. Integer eleifend, est a efficitur consequat, lacus nisl tincidunt est, nec tincidunt dui libero a risus. Nullam in neque tortor. Vivamus erat est, bibendum a risus nec, rutrum imperdiet velit. Phasellus ipsum felis, vulputate eu porttitor porta, condimentum eu diam. Sed velit mauris, fermentum sit amet risus in, fermentum aliquet leo. Sed ut sagittis metus. Pellentesque cursus justo nibh, sit amet rutrum diam ullamcorper ut. In ut rhoncus est. </p>
+  </details>
+
+  <details>
+    <summary>Where are you located</summary>
+    <p>Phasellus luctus dictum rhoncus. Curabitur quis magna tellus. Suspendisse potenti. Morbi eget risus felis. Nam at molestie ligula. Nullam et metus arcu. Aenean porttitor, felis id lacinia tincidunt, ipsum mauris gravida tellus, non facilisis mauris tellus lacinia massa. Etiam congue lorem vitae vehicula facilisis. Nullam quis libero pulvinar, ullamcorper dui non, tincidunt eros. </p>
+  </details>
+</div>
+    </section>
+    <footer>
+      <div>Quick Links</div>
+      <div>Social Media</div>
+      <div>Copyright</div>
+    </footer>
+    <!-- partial -->
+  <script>
+        var Accordions=(function(){
+          'use strict';
+          var closeOthers=function(current,parent){
+            var opened=Array.from(parent.querySelectorAll('details[open]')
+            );
+            opened.forEach(function(accordion){
+              if(accordion===current){return}
+              accordion.removeAttribute('open')}
+              )};
+              var toggle=function(event,selector){
+                var parent=event.target.closest(selector);
+                if(!parent){return}if(!event.target.hasAttribute('open')){return}closeOthers(event.target,parent)
+              };
+              var Constructor=function(selector){var publicAPIs={};
+              var toggleHandler=function(event){toggle(event,selector)};
+              publicAPIs.destroy=function(){document.removeEventListener('toggle',toggleHandler,true)};
+              publicAPIs.init=function(){if(!selector||typeof selector!=='string'){
+                throw new Error('Please provide a valid selector')}
+                document.addEventListener('toggle',toggleHandler,true)};
+                publicAPIs.init();
+                return publicAPIs};
+                return Constructor})();
+                var accordion=new Accordions('.faq_accordion');
+  </script>
+  </body>
+</html>
